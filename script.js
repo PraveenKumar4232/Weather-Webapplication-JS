@@ -12,7 +12,6 @@ async function search() {
     const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${locationName}&days=5&key=46ff6780289f436ea2c8e6e11942d26f&units=Metric`;
     const fetching = await fetch(url); //waits for the fetch promise to resolve
     const response = await fetching.json(); //waiting for the json parsing to complete
-    console.log(response);
     document.querySelector(
       ".current-weather h2"
     ).innerHTML = `${response.city_name} (${response.data[0].datetime})`;
@@ -26,6 +25,7 @@ async function search() {
       "#humidity"
     ).innerHTML = `Humidity : ${response.data[0].rh}%`;
     document.querySelector(".forecast").style.display = "block";
+    document.querySelector(".btn-reset").style.display = "block";
     for (let i = 1; i < response.data.length; i++) {
       let data = response.data[i];
       const div = document.createElement("div");
@@ -55,18 +55,17 @@ async function search() {
     const testCondition = /^[A-Za-z]+$/;
     return testCondition.test(x);
   }
-  document.querySelector(".btn-search").classList.toggle("start-active"); //classList Css
-  document.querySelector(".btn-location").classList.toggle("start-active"); //classList Css
 }
-
 function reset() {
-  window.location.reload();
+  setTimeout(() => window.location.reload(),500);
 }
 
 function getLocation() {
   //Geolocation functionn defintion
   document.querySelector(".btn-location").classList.toggle("start-active");
   document.querySelector(".btn-search").classList.toggle("start-active");
+  document.querySelector(".btn-reset").style.display = "block";
+  document.querySelector(".forecast").style.display = "block";
 
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(success, failure);
@@ -77,7 +76,6 @@ function getLocation() {
   async function success(position) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
-    console.log(latitude + " and " + longitude);
 
     const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&key=46ff6780289f436ea2c8e6e11942d26f&units=Metric&days=5`;
     const fetching = await fetch(url); //waits for the fetch promise to resolve
@@ -95,7 +93,7 @@ function getLocation() {
       "#humidity"
     ).innerHTML = `Humidity : ${response.data[0].rh}%`;
 
-    for (let i = 1; i <= response.data.length; i++) {
+    for (let i = 1; i < response.data.length; i++) {
       let data = response.data[i];
       const div = document.createElement("div");
       const h4 = document.createElement("h4");
