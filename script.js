@@ -12,6 +12,7 @@ async function search() {
     const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${locationName}&days=5&key=46ff6780289f436ea2c8e6e11942d26f&units=Metric`;
     const fetching = await fetch(url); //waits for the fetch promise to resolve
     const response = await fetching.json(); //waiting for the json parsing to complete
+    console.log(response);
     document.querySelector(
       ".current-weather h2"
     ).innerHTML = `${response.city_name} (${response.data[0].datetime})`;
@@ -57,7 +58,7 @@ async function search() {
   }
 }
 function reset() {
-  setTimeout(() => window.location.reload(),500);
+  setTimeout(() => window.location.reload(), 500);
 }
 
 function getLocation() {
