@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Web Application</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="heading">
-        <h1>Weather Dashboard</h1>
+      <h1>Weather Dashboard</h1>
     </div>
     <div class="container">
-        <div class="weather-input">
-            <h4 style="font-size: 20px;">Enter a City Name</h4>
-            <div class="input-div">
-            <input class="text-box" placeholder="Eg.New York,London,Tokyo">
-            </div>
-            <div class="search-btn">
-                <button class="btn-search" onclick="search()">Search</button>        
-            </div>
-            <div class="space">
-                <div class="span">or</div>
-            </div>
-
-            <div class="location-btn">
-                <button class="btn-location" onclick="getLocation()">Use Current Location</button>
-            </div>
-
-            <div class="reset">
-                <button class="btn-reset" onclick="reset()" style="display: none;">Reset</button>
-            </div>
+      <div class="weather-input">
+        <h4 style="font-size: 20px">Enter a City Name</h4>
+        <div class="input-div">
+          <input class="text-box" placeholder="Eg.New York,London,Tokyo" />
         </div>
-    
+        <div class="search-btn">
+          <button class="btn-search" onclick="search()">Search</button>
+        </div>
+        <div class="space">
+          <div class="span">or</div>
+        </div>
 
-    <div class="weather-details">
+        <div class="location-btn">
+          <button class="btn-location" onclick="getLocation()">
+            Use Current Location
+          </button>
+        </div>
+
+        <div class="reset">
+          <button class="btn-reset" onclick="reset()" style="display: none">
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <div class="weather-details">
         <div class="current-weather">
+          <div class="today">
             <h2>Chennai (YYYY-MM-DD)</h2>
             <h4 id="temp">Temperature : ..........</h4>
-            <h4 id ="wind">Wind : ..........</h4>
-            <h4 id ="humidity">Humidity : ..........</h4>
+            <h4 id="wind">Wind : ..........</h4>
+            <h4 id="humidity">Humidity : ..........</h4>
+          </div>
+          <div class="today_icon">
+            <h4></h4>
+          </div>
         </div>
-        <h4 class="forecast" style="display:none;">4-day forecast</h4>
-        <div class="future-updates">
+        <h4 class="forecast" style="display: none">4-day forecast</h4>
+        <div class="future-updates"></div>
+      </div>
     </div>
-    </div>
-</div>
-    
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -18,13 +18,20 @@ async function search() {
     ).innerHTML = `${response.city_name} (${response.data[0].datetime})`;
     document.querySelector("#temp").innerHTML = `Temperature : ${Math.round(
       response.data[0].temp
-    )}°C ( ${response.data[0].weather.description} )`;
+    )}°C`;
     document.querySelector(
       "#wind"
     ).innerHTML = `Wind : ${response.data[0].wind_spd}M/S`;
     document.querySelector(
       "#humidity"
     ).innerHTML = `Humidity : ${response.data[0].rh}%`;
+
+    const icon = document.createElement("img");
+    icon.src = `./icons/${response.data[0].weather.icon}.png`;
+    document.querySelector(".today_icon").appendChild(icon);
+    document.querySelector(".today_icon h4").innerHTML =
+      response.data[0].weather.description;
+
     document.querySelector(".forecast").style.display = "block";
     document.querySelector(".btn-reset").style.display = "block";
     for (let i = 1; i < response.data.length; i++) {
@@ -34,15 +41,25 @@ async function search() {
       const h4_1 = document.createElement("h4");
       const h4_2 = document.createElement("h4");
       const h4_3 = document.createElement("h4");
+
+      const icon = document.createElement("img");
+      icon.src = `./icons/${data.weather.icon}.png`;
+      const icon_description = document.createElement("h4");
+
       h4.innerHTML = `${response.city_name} (${data.datetime})`;
       h4_1.innerHTML = `Temperature : ${Math.round(data.temp)}°C`;
       h4_2.innerHTML = `Wind : ${data.wind_spd}M/S`;
       h4_3.innerHTML = `Humidity : ${data.rh}%`;
+
+      icon_description.innerHTML = `Cloud : ${data.weather.description}`;
       document.querySelector(".future-updates").appendChild(div);
+
       div.appendChild(h4);
       div.appendChild(h4_1);
       div.appendChild(h4_2);
       div.appendChild(h4_3);
+      div.appendChild(icon_description);
+      div.appendChild(icon);
     }
   } catch (err) {
     alert(err);
@@ -86,13 +103,19 @@ function getLocation() {
     ).innerHTML = `${response.city_name} (${response.data[0].datetime})`;
     document.querySelector("#temp").innerHTML = `Temperature : ${Math.round(
       response.data[0].temp
-    )}°C ( ${response.data[0].weather.description} )`;
+    )}°C`;
     document.querySelector(
       "#wind"
     ).innerHTML = `Wind : ${response.data[0].wind_spd}M/S`;
     document.querySelector(
       "#humidity"
     ).innerHTML = `Humidity : ${response.data[0].rh}%`;
+
+    const icon = document.createElement("img");
+    icon.src = `./icons/${response.data[0].weather.icon}.png`;
+    document.querySelector(".today_icon").appendChild(icon);
+    document.querySelector(".today_icon h4").innerHTML =
+      response.data[0].weather.description;
 
     for (let i = 1; i < response.data.length; i++) {
       let data = response.data[i];
@@ -101,15 +124,25 @@ function getLocation() {
       const h4_1 = document.createElement("h4");
       const h4_2 = document.createElement("h4");
       const h4_3 = document.createElement("h4");
+
+      const icon = document.createElement("img");
+      icon.src = `./icons/${data.weather.icon}.png`;
+      const icon_description = document.createElement("h4");
+
       h4.innerHTML = `${response.city_name} (${data.datetime})`;
       h4_1.innerHTML = `Temperature : ${Math.round(data.temp)}°C`;
       h4_2.innerHTML = `Wind : ${data.wind_spd}M/S`;
       h4_3.innerHTML = `Humidity : ${data.rh}%`;
+
+      icon_description.innerHTML = `Cloud : ${data.weather.description}`;
       document.querySelector(".future-updates").appendChild(div);
+
       div.appendChild(h4);
       div.appendChild(h4_1);
       div.appendChild(h4_2);
       div.appendChild(h4_3);
+      div.appendChild(icon_description);
+      div.appendChild(icon);
     }
   }
 
