@@ -51,15 +51,15 @@ async function search() {
       h4_2.innerHTML = `Wind : ${data.wind_spd}M/S`;
       h4_3.innerHTML = `Humidity : ${data.rh}%`;
 
-      icon_description.innerHTML = `Cloud : ${data.weather.description}`;
+      icon_description.innerHTML = `Clouds : ${data.weather.description}`;
       document.querySelector(".future-updates").appendChild(div);
 
       div.appendChild(h4);
+      div.appendChild(icon);
+      div.appendChild(icon_description);
       div.appendChild(h4_1);
       div.appendChild(h4_2);
       div.appendChild(h4_3);
-      div.appendChild(icon_description);
-      div.appendChild(icon);
     }
   } catch (err) {
     alert(err);
@@ -134,15 +134,15 @@ function getLocation() {
       h4_2.innerHTML = `Wind : ${data.wind_spd}M/S`;
       h4_3.innerHTML = `Humidity : ${data.rh}%`;
 
-      icon_description.innerHTML = `Cloud : ${data.weather.description}`;
+      icon_description.innerHTML = `Clouds : ${data.weather.description}`;
       document.querySelector(".future-updates").appendChild(div);
 
       div.appendChild(h4);
+      div.appendChild(icon);
+      div.appendChild(icon_description);
       div.appendChild(h4_1);
       div.appendChild(h4_2);
       div.appendChild(h4_3);
-      div.appendChild(icon_description);
-      div.appendChild(icon);
     }
   }
 
