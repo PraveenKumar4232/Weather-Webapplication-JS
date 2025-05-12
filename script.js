@@ -9,7 +9,7 @@ async function search() {
     return;
   }
   try {
-    const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${locationName}&days=5&key=46ff6780289f436ea2c8e6e11942d26f&units=Metric`;
+    const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${locationName}&days=5&key=13f64561991b46729db1868cff12e6b5&units=Metric`;
     const fetching = await fetch(url); //waits for the fetch promise to resolve
     const response = await fetching.json(); //waiting for the json parsing to complete
     console.log(response);
@@ -95,7 +95,7 @@ function getLocation() {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
 
-    const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&key=46ff6780289f436ea2c8e6e11942d26f&units=Metric&days=5`;
+    const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&key=13f64561991b46729db1868cff12e6b5&units=Metric&days=5`;
     const fetching = await fetch(url); //waits for the fetch promise to resolve
     const response = await fetching.json(); //waiting for the json parsing to complete
     document.querySelector(
